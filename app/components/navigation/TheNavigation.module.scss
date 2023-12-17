@@ -1,0 +1,28 @@
+.nav{
+    // border: 1px solid rgb(192, 7, 7);
+    margin: 4px;
+    display: flex;
+    flex: 1 1 auto;
+    width: fit-content;
+    // display: block;
+    ul{
+        display: flex;        
+        // border: 1px solid rgb(192, 7, 7);
+        gap: 6px;
+        li{
+            // display: block;
+        }
+
+        .nav_item{
+            background: #f7e0a2;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            &:hover{
+                background: #d6c186;
+            }
+        }
+    }
+}

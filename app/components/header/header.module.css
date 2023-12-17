@@ -1,0 +1,9 @@
+.header{
+    position: fixed;
+    width: 100vw;
+    height: 90px;
+    left: 0;
+    top: 0;
+    background: #f8ba5efd;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.507);
+}

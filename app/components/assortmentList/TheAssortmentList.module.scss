@@ -1,0 +1,23 @@
+.table {
+    border: 2px solid rgb(59, 44, 145);
+    border-radius: 8px;
+    border-spacing: 14px 2px;
+
+    td{
+        font-weight: 500;
+    }
+
+    .tdQuantity {
+        text-align: center;
+    }
+
+    .tdPrice {
+        text-align: end;
+        width: 100px;
+    }
+
+    .trHeader th {
+        padding-bottom: 8px;
+        font-weight: 800;
+    }
+}

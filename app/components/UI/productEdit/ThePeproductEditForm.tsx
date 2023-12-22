@@ -22,10 +22,10 @@ type Props = {
 };
 
 const TheProductEditForm: React.FC<Props> = ({ setEditForm, product, closer, handler_updateItem }) => {
-    const [name, setName] = useState(product.name);
-    const [quantity, setQuantity] = useState(product.quantity);
-    const [description, setDescription] = useState(product.description);
-    const [price, setPrice] = useState(product.price);
+    const [name, setName] = useState(product.name||"");
+    const [quantity, setQuantity] = useState(product.quantity||"");
+    const [description, setDescription] = useState(product.description||"");
+    const [price, setPrice] = useState(product.price||0);
 
     const handleSave: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();

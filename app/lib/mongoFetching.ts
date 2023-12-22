@@ -1,8 +1,14 @@
 // import Product, { Products } from "./productsModel";
 // import dbMongoConnect from "./dbMongoConnect";
+// import type {productItemType} from "@/app/data/assortment"
 
-const URL_PRODUCTS = process.env.BASE_URL + "/api/db.products";
-import type {productItemType} from "@/app/data/assortment"
+const BASE_URL:string = process.env.NEXT_PUBLIC_DOMEN_BASE_URL!;
+if (!BASE_URL) {
+    throw new Error("Please define the BASE_URL environment variable inside .env.local");
+}
+
+const URL_PRODUCTS = BASE_URL + "/api/db.products";
+
 
 // const URL_PRODUCTS = "http://localhost:3000/api/db.products";
 type Params = {

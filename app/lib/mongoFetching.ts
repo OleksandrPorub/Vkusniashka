@@ -1,10 +1,10 @@
 // import Product, { Products } from "./productsModel";
 // import dbMongoConnect from "./dbMongoConnect";
 
-// const URL_PRODUCTS = process.env.BASE_URL + "/api/db.products";
+const URL_PRODUCTS = process.env.BASE_URL + "/api/db.products";
 import type {productItemType} from "@/app/data/assortment"
 
-const URL_PRODUCTS = "http://localhost:3000/api/db.products";
+// const URL_PRODUCTS = "http://localhost:3000/api/db.products";
 type Params = {
     query?: string;
 };

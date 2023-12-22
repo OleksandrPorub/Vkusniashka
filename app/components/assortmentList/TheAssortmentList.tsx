@@ -22,13 +22,12 @@ const TheAssortmentList: FC = () => {
         };
         getProducts();
     }, []);
-    useEffect(() => {
-        console.log("isChoose= ", isChoose);
-    }, [isChoose]);
+    // useEffect(() => {
+    //     console.log("isChoose= ", isChoose);
+    // }, [isChoose]);
 
     const handler_DelItem = async (id: string) => {
-        const response = window.prompt("Ви впевнені, що хочете видалити цей елемент?", "Так");
-        console.log(response);
+        const response = window.prompt("Ви впевнені, що хочете видалити цей елемент?", "Так");      
         if (response === ("Так" || "Да" || "Yes" || "y" || "Y")) {        
             await deleteProduct({ id: id });
             setProductList(await getAllProducts({}));

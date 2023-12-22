@@ -20,14 +20,10 @@ type productType = {
 export const getAllProducts = async ({ query }: { query?: string }) => {
     const url = URL_PRODUCTS;
     const response = await fetch(url);
-    // console.log("========================================================");
-    // console.log("========================================================");
-    // console.log(await response.json());
     return response.json();
 };
 
-export const deleteProduct = async ({ id }: { id: string }) => {
-    console.log("del_id= "+ id);
+export const deleteProduct = async ({ id }: { id: string }) => {  
     const url = id ? URL_PRODUCTS + `?id=${id}` : URL_PRODUCTS;
     const response = await fetch(url, {
         method: "DELETE",
@@ -36,9 +32,7 @@ export const deleteProduct = async ({ id }: { id: string }) => {
 };
 
 export const editProduct = async (product: productType) => {
-    console.log(product);
     const id = product.id;
-
     const url = id ? URL_PRODUCTS + `?id=${id}` : URL_PRODUCTS;
     const response = await fetch(url, {
         method: "POST",

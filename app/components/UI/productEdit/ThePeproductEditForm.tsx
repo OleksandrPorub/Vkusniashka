@@ -30,16 +30,11 @@ const TheProductEditForm: React.FC<Props> = ({ setEditForm, product, closer, han
     const handleSave: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
         const formData: productType = {name:name||"", id:product.id };
-        // formData.name = name||"";
+    
         quantity && (formData.quantity = quantity);
         description && (formData.description = description);
         price && (formData.price = price);
-        // formData.id = product.id;
-
-        console.log(formData);
-        // await editProduct(formData);
-        await handler_updateItem(formData);
-        // closer(e);
+        await handler_updateItem(formData);  
     };
 
     return (

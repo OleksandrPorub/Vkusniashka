@@ -5,14 +5,13 @@ export interface Products extends mongoose.Document {
     id: string,
     name: string,
     quantity: string,
-    discription?: string,
+    description?: string,
     price?: number,
 }
 
 const assortmentSchema = new mongoose.Schema<Products>({
     _id: {
         type: String,
-        // required: [true, 'Please provide an id for this product.'],
         unique: true,
     },
     id: {
@@ -28,7 +27,7 @@ const assortmentSchema = new mongoose.Schema<Products>({
         type: String,
         required: false,
     },
-    // discription: {
+    // description: {
     //     type: String,
     //     required: false,
     // },

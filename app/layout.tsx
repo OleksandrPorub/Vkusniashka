@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header/Header";
+import Header from "./components/header/TheHeader";
 
-const inter = Inter({ subsets: ["latin"], weight:["300", "400", "500", "700", "900"] });
+const globalFont = Roboto({ subsets: ["latin"], weight:["300", "400", "500", "700", "900"] });
 
 export const metadata: Metadata = {
     title: "Вкусняшка",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="ukr">
-            <body className={inter.className}>
+            <body className={globalFont.className}>
             <Header></Header>
             <main>{children}</main>
               

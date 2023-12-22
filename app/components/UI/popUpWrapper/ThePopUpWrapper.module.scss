@@ -1,0 +1,11 @@
+.popUpWrapper{
+    position: fixed;
+    inset: 0 0 0 0;
+    background: #0000004d;
+    backdrop-filter: blur(3px);
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}

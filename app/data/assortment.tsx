@@ -2,8 +2,8 @@ export type productItemType = {
     _id?: string;
     id: string;
     name: string;
-    quantity: string;
-    discription?: string;
+    quantity?: string;
+    description?: string;
     price?: number;
 };
 
@@ -14,14 +14,14 @@ export const assortmentList: assortmentType = [
         id: "1",
         name: "Борщ",
         quantity: "300г",
-        discription: "запашний домашній український борщ із м'ясом",
+        description: "запашний домашній український борщ із м'ясом",
         price: 80,
     },
     {
         id: "2",
         name: "Вареники із капустою",
         quantity: "400г",
-        discription: "Вареники із тушеною капустою",
+        description: "Вареники із тушеною капустою",
         price: 50,
     },
     {

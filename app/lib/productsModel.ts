@@ -27,10 +27,10 @@ const assortmentSchema = new mongoose.Schema<Products>({
         type: String,
         required: false,
     },
-    // description: {
-    //     type: String,
-    //     required: false,
-    // },
+    description: {
+        type: String,
+        required: false,
+    },
     price: {
         type: Number,
         required: false,

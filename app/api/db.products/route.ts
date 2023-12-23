@@ -1,4 +1,4 @@
-import Product, { Products } from "../../lib/productsModel";
+import Product from "../../lib/productsModel";
 import dbMongoConnect from "@/app/lib/dbMongoConnect";
 import { NextResponse } from "next/server";
 
@@ -7,9 +7,6 @@ export async function GET(req: any) {
     const gettedProducts = await Product.find();
     const { searchParams } = new URL(req.url);
     const query = searchParams?.get("q");
-    // console.log("========================================================");
-    // console.log("gettedProducts= ", gettedProducts);
-    // console.log("========================================================");
 
     const products = query ? gettedProducts.filter((item) => item.name.toLowerCase().includes(query.toLowerCase())) : gettedProducts;
 

@@ -11,7 +11,7 @@ type propsType = {
 
 const TheProductList: FC<propsType> = ({ productList, isChoose, setIsChoose, chooseAction }) => {
     return (
-        <>
+        <div className={styles.wrapper}>
             <div className={styles.listHeader}>
                 <div className={styles.listHeaderProp + " " + styles.head_num}>№</div>
                 <div className={styles.listHeaderProp + " " + styles.head_name}>Найменування</div>
@@ -52,7 +52,7 @@ const TheProductList: FC<propsType> = ({ productList, isChoose, setIsChoose, cho
                     </li>
                 ))}
             </ul>
-        </>
+        </div>
     );
 };
 

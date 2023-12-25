@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-export interface Products extends mongoose.Document {    
-    _id?: string,
+export interface Products extends mongoose.Document {
     id: string,
     name: string,
     quantity: string,
@@ -9,11 +8,7 @@ export interface Products extends mongoose.Document {
     price?: number,
 }
 
-const assortmentSchema = new mongoose.Schema<Products>({
-    _id: {
-        type: String,
-        unique: true,
-    },
+const assortmentSchema = new mongoose.Schema<Products>({  
     id: {
         type: String,
         required: [true, 'Please provide an id for this product.'],

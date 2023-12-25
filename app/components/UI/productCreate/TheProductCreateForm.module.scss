@@ -1,0 +1,32 @@
+
+.form {
+    max-width: 450px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: rgb(149, 190, 190);
+  
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    input {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+  
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #45a049;
+      }
+    }
+  }

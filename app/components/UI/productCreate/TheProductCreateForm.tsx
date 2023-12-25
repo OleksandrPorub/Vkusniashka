@@ -1,40 +1,35 @@
 "use client";
 
 import { FormEventHandler, useState } from "react";
-import styles from "./TheProductEditForm.module.scss";
+import styles from "./TheProductCreateForm.module.scss";
 import ThePopUpWrapper from "../popUpWrapper/ThePopUpWrapper";
+import { productItemType } from "@/app/data/assortment";
 
-type productType = {
-    _id?: string;
-    id: string;
-    name: string;
-    quantity?: string;
-    description?: string;
-    price?: number;
-};
 
 type Props = {
-    setEditForm: Function;
-    product: productType;
-    closer: Function;
-    handler_updateItem: Function;
+    setCreateForm: Function;
+    handler_createItem: Function;
 };
 
-const TheProductEditForm: React.FC<Props> = ({ setEditForm, product, closer, handler_updateItem }) => {
-    const [name, setName] = useState(product.name || "");
-    const [quantity, setQuantity] = useState(product.quantity || "");
-    const [description, setDescription] = useState(product.description || "");
-    const [price, setPrice] = useState(product.price?.toFixed(2) || "");
+const TheProductCreateForm: React.FC<Props> = ({ setCreateForm, handler_createItem }) => {
+    const [name, setName] = useState("");
+    const [quantity, setQuantity] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
 
     const handleSave: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-        const formData: productType = { name: name || "", id: product.id };
-
-        formData.quantity = quantity;
-        formData.description = description;
-        formData.price = +((parseFloat(price)).toFixed(2));
-        await handler_updateItem(formData);
-        setEditForm(false);
+        if(!name){
+            window.alert('Поле "Назва продукту" не заповнене!');
+            return;
+        }
+        const randomID = Math.random().toString(36).substring(2);
+        const newProduct: productItemType = { name: name, id: randomID };
+        newProduct.quantity = quantity;
+        newProduct.description = description;
+        newProduct.price = +((parseFloat(price)).toFixed(2));
+        await handler_createItem(newProduct);
+        setCreateForm(false);
     };
 
     return (
@@ -43,8 +38,7 @@ const TheProductEditForm: React.FC<Props> = ({ setEditForm, product, closer, han
             <button
                 className={styles.form}
                 onClick={(e) => {
-                    setEditForm(false);
-                    closer(e);
+                    setCreateForm(false);
                 }}
             >
                 Закрити
@@ -74,4 +68,4 @@ const TheProductEditForm: React.FC<Props> = ({ setEditForm, product, closer, han
     );
 };
 
-export default TheProductEditForm;
+export default TheProductCreateForm;

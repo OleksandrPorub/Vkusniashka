@@ -1,0 +1,124 @@
+.listHeader {
+    display: flex;
+    margin-bottom: 10px;
+
+    .listHeaderProp {
+        outline: 2px solid #485a97;
+        background: #485a97;
+        color: white;
+        font-weight: 400;
+        font-size: 0.95em;
+        outline-offset: -1px;
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        &.head_num {
+            min-width: var(--colNum-width);
+
+        }
+
+        &.head_name {
+            flex-grow: 1;
+        }
+
+        &.head_quantity {
+            min-width: var(--colQuantity-width);
+            width: var(--colQuantity-width);
+        }
+
+        &.head_price {
+            min-width: var(--colPrice-width);
+        }
+    }
+}
+
+
+.productsList {
+
+    .productItem {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        margin-bottom: 4px;
+
+        &.active {
+            outline: 2px solid rgba(73, 73, 73, 0.534);
+            outline-offset: -2px;
+            background: rgba(253, 253, 253, 0.637);
+        }
+
+        &.blur {
+            filter: blur(1.6px);
+        }
+
+        &:hover:not(.active) {
+            background: rgba(48, 48, 48, 0.151);
+            background: #485a972f;
+        }
+
+        .section_number {
+            min-width: var(--colNum-width);
+        }
+
+        .section_main {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            width: 100%;
+            border-top: 2px solid #485a97;
+
+            .section_top {
+                display: flex;
+                width: 100%;
+            }
+
+            .section_description {
+                display: flex;
+                width: 100%;
+            }
+        }
+
+        .productProp {
+            font-weight: 500;
+            padding: 4px 4px;
+
+            &.prop_num {
+                width: 100%;
+                height: 100%;
+                background: #485a9733;
+                outline: 2px solid #485a97;
+                outline-offset: -2px;
+                color: #3c5091;
+                display: flex;
+                justify-content: center;
+                font-weight: 400;
+                font-size: 0.9em;
+            }
+
+            &.prop_name {
+                flex-grow: 1;
+            }
+
+            &.prop_quantity {
+                min-width: var(--colQuantity-width);
+                text-align: center;
+                font-size: 0.98em;
+            }
+
+            &.prop_price {
+                text-align: end;
+                min-width: var(--colPrice-width);
+                font-size: 0.98em;
+            }
+
+            &.prop_description {
+                font-size: 0.8em;
+                font-weight: 400;
+                flex-grow: 1;
+            }
+        }
+    }
+}

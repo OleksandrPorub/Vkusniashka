@@ -8,9 +8,7 @@
 html,
 body {
   max-width: 100vw;
-  /* overflow-x: hidden; */
 }
-
 
 main {
   display: flex;
@@ -19,10 +17,9 @@ main {
   align-items: center;
   padding-top: 90px;
   min-height: 100vh;
-  /* border: 2px solid brown; */
+  background-image: url("/background/frukty-tekstura-patterny-15_600_blur.jpg");
+  /* background-size: 600px; */
 }
-
-
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -30,12 +27,10 @@ main {
   }
 }
 
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 
 ol,
 ul {
@@ -43,16 +38,11 @@ ul {
 }
 
 .page{
-  background: #9ffa8c42;
-  /* border: 2px solid brown; */
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px 0;
-  /* min-height: 100%; */
   flex-grow: 1;
-  /* border: 2px solid brown; */
-  /* height: 100%; */
 }
 

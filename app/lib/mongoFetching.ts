@@ -39,3 +39,13 @@ export const editProduct = async (product: productType) => {
     });
     return response.json();
 };
+
+export const createNewProduct = async (product: productType) => {
+   
+    const url =  URL_PRODUCTS;
+    const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(product),
+    });
+    return response.json();
+};

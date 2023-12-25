@@ -26,8 +26,19 @@ export async function DELETE(req: any) {
 export async function POST(req: any) {
     await dbMongoConnect();
     const body = await req.json();
+    let response;
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");
-    const response = await Product.updateOne({ id: id }, body);
+    console.log("searchParams ID: ")
+    console.log(id)
+
+    if (id) {        
+        // const id = searchParams.get("id");
+        response = await Product.updateOne({ id: id }, body);
+    } else {
+        const newProductItem = new Product(body);
+        response = newProductItem.save();
+    }
+
     return NextResponse.json(response);
 }

@@ -5,7 +5,6 @@ const assortment: NextPage = async () => {
 
     return (
         <article className="page">
-            <h2>Асортимент</h2>
             <TheAssortmentList></TheAssortmentList>
         </article>
     );

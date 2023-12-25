@@ -1,10 +1,13 @@
 import Image from "next/image";
-import styles from "./home.module.css";
+import styles from "./home.module.scss";
 
 export default function Home() {
     return (
-        <article className="page">
-            <h2>Домашня сторінка</h2>
-        </article>
+        <div className="page">
+            <article className={styles.intro}>
+                <h2>ВКУСНЯШКИ ВІД НАТАШКИ</h2>
+                <p className={styles.description}>Магазин смачної домашньої кухні</p>
+            </article>
+        </div>
     );
 }

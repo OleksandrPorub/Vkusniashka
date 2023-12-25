@@ -1,0 +1,27 @@
+.intro {
+color: rgb(255, 255, 255);
+padding: 70px 30px;
+margin-top: 60px;
+background: #725233;
+width: fit-content;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+box-shadow: 0 4px 70px 5px black;
+
+
+
+h2{
+  font-size: 40px;
+  font-weight: 900;
+  margin: 30px 10px;
+}
+
+  .description {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 20px 10px;
+  }
+}

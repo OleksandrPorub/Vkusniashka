@@ -2,27 +2,29 @@
 
 import type { productItemType } from "@/app/data/assortment";
 import { FC, useEffect, useState } from "react";
-import styles from "./TheAssortmentList.module.scss";
-import { createNewProduct, deleteProduct, editProduct, getAllProducts } from "@/app/services/mongoFetchProducts";
+import styles from "./TheMenuTodayList.module.scss";
 import TheChooseAction from "../UI/chooseActionTab/TheChooseAction";
 import TheProductEditForm from "../UI/productEdit/TheProductEditForm";
 import TheLoader from "../UI/loader/TheLoader";
 import TheProductList from "../productList/TheProductList";
 import TheProductCreateForm from "../UI/productCreate/TheProductCreateForm";
+import { createNewProductMenu, deleteProductMenu, editProductMenu, getMenuToday } from "@/app/services/mongoFetchMenuToday";
 
 type IsChooseType = string | null;
 
-const TheAssortmentList: FC = () => {
+const TheMenuTodayList: FC = () => {
     const [productList, setProductList]: [productItemType[], Function] = useState([]);
     const [isChoose, setIsChoose]: [IsChooseType, any] = useState(null);
     const [editForm, setEditForm]: [boolean, Function] = useState(false);
     const [isLoading, setIsLoading]: [boolean, Function] = useState(false);
     const [createForm, setCreateForm]: [boolean, Function] = useState(false);
-
+  
     useEffect(() => {
         const getProducts = async () => {
             setIsLoading(true);
-            setProductList(await getAllProducts({}));
+            const products = await getMenuToday({});
+            console.log(products);
+            setProductList(products);
             setIsLoading(false);
         };
         getProducts();
@@ -30,23 +32,21 @@ const TheAssortmentList: FC = () => {
     const handler_DelItem = async (id: string) => {
         const response = window.prompt("Ви впевнені, що хочете видалити цей елемент?", "Так");
         if (response === ("Так" || "Да" || "Yes" || "y" || "Y")) {
-            await deleteProduct({ id: id });
-            setProductList(await getAllProducts({}));
+            await deleteProductMenu({ id: id });
+            setProductList(await getMenuToday({}));
             setIsChoose(null);
         }
     };
 
     const handler_updateItem = async (formData: productItemType) => {
-        await editProduct(formData);
-        setProductList(await getAllProducts({}));
+        await editProductMenu(formData);
+        setProductList(await getMenuToday({}));
         setIsChoose(null);
     };
     const handler_createItem = async (newProduct: productItemType) => {
-        await createNewProduct(newProduct);
-        setProductList(await getAllProducts({}));
-        // setIsChoose(null);
+        await createNewProductMenu(newProduct);
+        setProductList(await getMenuToday({}));
     };
-   
 
     const handler_Closer = (e: any) => {
         e.stopPropagation();
@@ -63,7 +63,7 @@ const TheAssortmentList: FC = () => {
 
     return (
         <article className={styles.wrapper}>
-            <h2 className={styles.headLine}>Асортимент</h2>
+            <h2 className={styles.headLine}>Меню сьогодні</h2>
             {isLoading ? (
                 <TheLoader size={80}></TheLoader>
             ) : productList.length ? (
@@ -81,7 +81,9 @@ const TheAssortmentList: FC = () => {
                 onClick={() => {
                     setCreateForm(true);
                 }}
-            >Створити новий продукт</button>
+            >
+                Створити новий продукт
+            </button>
             {editForm && (
                 <TheProductEditForm
                     handler_updateItem={handler_updateItem}
@@ -90,9 +92,11 @@ const TheAssortmentList: FC = () => {
                     setEditForm={setEditForm}
                 ></TheProductEditForm>
             )}
-            {createForm&&<TheProductCreateForm setCreateForm={setCreateForm} handler_createItem={handler_createItem}></TheProductCreateForm>}
+            {createForm && (
+                <TheProductCreateForm selectProduct={true} setCreateForm={setCreateForm} handler_createItem={handler_createItem}></TheProductCreateForm>
+            )}
         </article>
     );
 };
 
-export default TheAssortmentList;
+export default TheMenuTodayList;

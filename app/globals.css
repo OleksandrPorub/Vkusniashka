@@ -18,6 +18,7 @@ main {
   padding-top: 90px;
   min-height: 100vh;
   background-image: url("/background/frukty-tekstura-patterny-15_600_blur.jpg");
+  background-size: 300px;
   background-attachment: fixed;
 }
 

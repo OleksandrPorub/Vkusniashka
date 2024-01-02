@@ -1,32 +1,41 @@
-.wrapper{
+.wrapper {
   padding: 2vw;
 }
 
 
 .intro {
   color: rgb(255, 255, 255);
-  padding: 70px 10px;
-  margin: 60px 6px;
-  background: #53381cce;
+  padding: 60px 10px;
+  margin: 50px 6px;
+  // background: #09447556;
   width: fit-content;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 70px 5px black;
   text-align: center;
 
 
   h2 {
     font-size: 40px;
-    font-weight: 900;
+    font-weight: 700;
     margin: 30px 5px;
+    text-shadow: 2px 2px 6px #094475,
+      -2px -2px 6px #094475,
+      -2px 2px 6px #094475,
+      2px -2px 6px #094475, ;
   }
 
   .description {
     font-size: 24px;
     font-weight: 500;
     margin: 20px 10px;
+    color: #045496;
+    font-weight: 800;
+    text-shadow: 2px 2px 6px white,
+      -2px -2px 6px white,
+      -2px 2px 6px white,
+      2px -2px 6px white, ;
   }
 }

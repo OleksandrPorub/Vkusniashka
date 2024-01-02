@@ -1,10 +1,12 @@
+import  ProductToday  from './../productTodayModel';
+// import { dbMongoConnect } from '@/app/lib/dbMongoConnect';
 import Product from "../productsModel";
 import dbMongoConnect from "@/app/api/dbMongoConnect";
 import { NextResponse } from "next/server";
 
 export async function GET(req: any) {
     await dbMongoConnect();
-    const gettedProducts = await Product.find();
+    const gettedProducts = await ProductToday.find();
     const { searchParams } = new URL(req.url);
     const query = searchParams?.get("q");
 
@@ -18,7 +20,7 @@ export async function DELETE(req: any) {
 
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");
-    const response = await Product.deleteOne({ id: id });
+    const response = await ProductToday.deleteOne({ id: id });
 
     return NextResponse.json(response);
 }
@@ -33,9 +35,9 @@ export async function POST(req: any) {
     console.log(id)
 
     if (id) {
-        response = await Product.updateOne({ id: id }, body);
+        response = await ProductToday.updateOne({ id: id }, body);
     } else {
-        const newProductItem = new Product(body);
+        const newProductItem = new ProductToday(body);
         response = newProductItem.save();
     }
 

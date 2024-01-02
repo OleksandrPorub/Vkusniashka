@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 
-export interface Products extends mongoose.Document {
+export interface ProductToday extends mongoose.Document {
     id: string,
     name: string,
-    quantity: string,
+    quantity?: string,
     description?: string,
     price?: number,
 }
 
-const assortmentSchema = new mongoose.Schema<Products>({  
+const assortmentSchema = new mongoose.Schema<ProductToday>({
     id: {
         type: String,
         required: [true, 'Please provide an id for this product.'],
@@ -32,4 +32,4 @@ const assortmentSchema = new mongoose.Schema<Products>({
     },
 });
 
-export default mongoose.models.Product || mongoose.model<Products>('Product', assortmentSchema)
+export default mongoose.models.ProductToday || mongoose.model<ProductToday>('ProductToday', assortmentSchema)

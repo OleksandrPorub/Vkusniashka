@@ -1,12 +1,12 @@
-import TheAssortmentList from "../components/assortmentList/TheAssortmentList";
 import { NextPage } from "next";
+import TheAssortmentListVisitor from "../components/assortmentListVisitor/TheAssortmentListVisitor";
 
 const assortment: NextPage = async () => {
 
     return (
-        <article className="page">
-            <TheAssortmentList></TheAssortmentList>
-        </article>
+        <div className="page">
+            <TheAssortmentListVisitor/>
+        </div>
     );
 };
 

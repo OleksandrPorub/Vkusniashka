@@ -1,10 +1,9 @@
-import TheMenuTodayList from "../components/menuTodayList/TheMenuTodayList";
+import TheMenuTodayListVisitor from "../components/menuTodayListVisitor/TheMenuTodayListVisitor";
 
 function menuToday() {
     return (
         <article className="page">
-            <h2>Меню сьогодні</h2>
-            <TheMenuTodayList/>
+            <TheMenuTodayListVisitor/>
         </article>
     );
 }

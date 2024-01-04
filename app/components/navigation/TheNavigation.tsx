@@ -1,25 +1,53 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./TheNavigation.module.scss";
+import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
+
+const navigation = [
+    {
+        id: 1,
+        title: "Домашня",
+        path: "/",
+    },
+    {
+        id: 2,
+        title: "Асортимент",
+        path: "/assortment",
+    },
+    {
+        id: 3,
+        title: "Меню",
+        path: "/menuToday",
+    },
+    {
+        id: 4,
+        title: "admin Асортимент",
+        path: "/admin-assortment",
+    },
+    {
+        id: 5,
+        title: "admin Меню",
+        path: "/admin-menuToday",
+    },
+];
 
 const TheNavigation = () => {
+    const pathname = usePathname();
+    const { data: session } = useSession();
+
+    console.log(pathname);
     return (
         <nav className={styles.nav}>
             <ul>
-                <li>
-                    <Link className={styles.nav_item} href="/">
-                        Домашня
-                    </Link>
-                </li>
-                <li>
-                    <Link className={styles.nav_item} href="/assortment">
-                        Асортимент
-                    </Link>
-                </li>
-                <li>
-                    <Link className={styles.nav_item} href="/menuToday">
-                        Меню сьогодні
-                    </Link>
-                </li>
+                {navigation.map((item) => (
+                    !(!session && item.path.includes("admin"))&&<li key={item.id}>
+                        <Link className={styles.nav_item + (pathname === item.path ? ` ${styles.active}` : "")} href={item.path}>
+                            {item.title}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </nav>
     );

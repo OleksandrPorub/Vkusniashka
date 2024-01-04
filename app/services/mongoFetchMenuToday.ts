@@ -1,4 +1,3 @@
-
 const BASE_URL: string = process.env.NEXT_PUBLIC_DOMEN_BASE_URL! || "https://vkusniashka.vercel.app";
 
 if (!BASE_URL) {
@@ -17,7 +16,7 @@ type productType = {
 };
 
 export const getMenuToday = async ({ query }: { query?: string }) => {
-    const url = query ? URL_PRODUCTS + `?q=${query}` : URL_PRODUCTS;    
+    const url = query ? URL_PRODUCTS + `?q=${query}` : URL_PRODUCTS;
     const response = await fetch(url);
     return response.json();
 };
@@ -41,8 +40,7 @@ export const editProductMenu = async (product: productType) => {
 };
 
 export const createNewProductMenu = async (product: productType) => {
-   
-    const url =  URL_PRODUCTS;
+    const url = URL_PRODUCTS;
     const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(product),

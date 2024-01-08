@@ -12,22 +12,27 @@
 
 
         .nav_item {
-            background: #4b5c96;
+            
             display: flex;
             text-align: center;
             align-items: center;
             justify-content: center;
             padding: 1px;
             border: 4px solid transparent;
-            color: white;
+            color: rgb(26, 48, 145);
+            border-bottom-color: #1b379285;
+            font-weight: 600;
+            font-size: 16px;
+
+
             &:hover {
                 transform: scale(1.04);
-                border-bottom-color: #ff559cbb;
+                border-bottom-color: #1b3792d3;
             }
 
             &.active {
-                border-bottom-color: #ff368a;
-                background: #1039c2;
+                border-bottom-color: #f32078;
+                font-weight: 900;
             }
           
         }

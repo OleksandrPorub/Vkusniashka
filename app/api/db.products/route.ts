@@ -28,9 +28,7 @@ export async function POST(req: any) {
     const body = await req.json();
     let response;
     const { searchParams } = new URL(req.url);
-    const id = searchParams.get("id");
-    console.log("searchParams ID: ")
-    console.log(id)
+    const id = searchParams.get("id");  
 
     if (id) {
         response = await Product.updateOne({ id: id }, body);

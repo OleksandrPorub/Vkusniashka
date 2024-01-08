@@ -36,8 +36,7 @@ const navigation = [
 const TheNavigation = () => {
     const pathname = usePathname();
     const { data: session } = useSession();
-
-    console.log(pathname);
+    
     return (
         <nav className={styles.nav}>
             <ul>

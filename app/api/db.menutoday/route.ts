@@ -1,4 +1,4 @@
-import  ProductToday  from './../productTodayModel';
+import ProductToday from "./../productTodayModel";
 // import { dbMongoConnect } from '@/app/lib/dbMongoConnect';
 import Product from "../productsModel";
 import dbMongoConnect from "@/app/api/dbMongoConnect";
@@ -31,8 +31,6 @@ export async function POST(req: any) {
     let response;
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");
-    console.log("searchParams ID: ")
-    console.log(id)
 
     if (id) {
         response = await ProductToday.updateOne({ id: id }, body);

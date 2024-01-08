@@ -23,7 +23,6 @@ const TheMenuTodayList: FC = () => {
         const getProducts = async () => {
             setIsLoading(true);
             const products = await getMenuToday({});
-            console.log(products);
             setProductList(products);
             setIsLoading(false);
         };

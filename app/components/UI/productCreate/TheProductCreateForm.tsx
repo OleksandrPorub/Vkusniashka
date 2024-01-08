@@ -25,7 +25,7 @@ const TheProductCreateForm: React.FC<Props> = ({ selectProduct = false, setCreat
         };
 
         selectProduct && getProducts();
-    }, []);
+    }, [selectProduct]);
 
     const handleSave: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
@@ -41,8 +41,7 @@ const TheProductCreateForm: React.FC<Props> = ({ selectProduct = false, setCreat
         await handler_createItem(newProduct);
         setCreateForm(false);
     };
-    const autoFill = (id: string) => {
-        console.log(id);
+    const autoFill = (id: string) => {       
         const product = productList.find((product) => product.id === id);
         if (product) {
             setName(product.name);

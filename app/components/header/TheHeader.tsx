@@ -1,13 +1,12 @@
 "use client";
 
-import { signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import TheNavigation from "../navigation/TheNavigation";
 import styles from "./TheHeader.module.scss";
-import { useRouter } from "next/navigation";
 
 function Header() {
     const { data: session } = useSession();
-    const router = useRouter();
+
     return (
         <div className={styles.header}>
             <TheNavigation></TheNavigation>
@@ -17,6 +16,7 @@ function Header() {
                     onClick={() => {
                         signOut({ callbackUrl: "/" });
                     }}
+                    title={"розлогінутись"}
                 >
                     адміністратор
                 </button>
@@ -24,10 +24,11 @@ function Header() {
                 <button
                     className={styles.btn_signIn}
                     onClick={() => {
-                        router.push("/api/auth/signin");
+                        signIn("CredentialsProvider");
                     }}
+                    title={"вхід для адміна"}
                 >
-                    відвідувач
+                    вхід для адміна
                 </button>
             )}
         </div>

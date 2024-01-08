@@ -11,15 +11,19 @@ export const authConfig:AuthOptions = {
         CredentialsProvider({
             name:"Credentials",
             credentials: {
-                login: { label: "login", type: "text" },
-                password: { label: "password", type: "text" },
+                login: { label: "login", type: "text",required:true },
+                password: { label: "password", type: "password", required:true },
             },
             async authorize(credentials, req) {
                 if (credentials?.login === "admin" && credentials?.password === "vkus458") {
-                    const user = { id: "1", name: credentials.login, email: "vkusniashka@gmail.com", type: "admin" };
-                    return user;
+                    // const user = { id: "1", name: credentials.login, email: "vkusniashka@gmail.com", type: "admin" };
+                    const user = { name: credentials.login };
+                    return user as User;
                 } else return null;
             },
         }),
     ],
+    pages:{
+        signIn:"/signIn"
+    }
 };

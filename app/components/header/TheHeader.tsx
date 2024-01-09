@@ -3,9 +3,12 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import TheNavigation from "../navigation/TheNavigation";
 import styles from "./TheHeader.module.scss";
+import { usePathname, useRouter } from "next/navigation";
 
 function Header() {
     const { data: session } = useSession();
+    const router = useRouter();
+    const currentPath = usePathname();
 
     return (
         <div className={styles.header}>
@@ -24,7 +27,8 @@ function Header() {
                 <button
                     className={styles.btn_signIn}
                     onClick={() => {
-                        signIn("CredentialsProvider");
+                        // signIn("Credentials");
+                        router.push(`/signIn?callbackUrl=${currentPath}`)
                     }}
                     title={"вхід для адміна"}
                 >

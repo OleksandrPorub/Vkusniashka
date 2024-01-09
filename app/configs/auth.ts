@@ -9,7 +9,7 @@ export const authConfig:AuthOptions = {
         //     clientSecret: "",
         // }),
         CredentialsProvider({
-            // name:"Credentials",
+            name:"Credentials",
             credentials: {
                 login: { label: "login", type: "text",required:true },
                 password: { label: "password", type: "password", required:true },
@@ -23,7 +23,7 @@ export const authConfig:AuthOptions = {
             },
         }),
     ],
-    pages:{
-        signIn:"/signIn"
-    }
+    // pages:{
+    //     signIn:"/signIn"
+    // }
 };

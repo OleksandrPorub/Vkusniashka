@@ -1,5 +1,6 @@
 .nav {
     margin-bottom: 4px;
+    margin-top: -12px;
     display: flex;
     flex: 1 1 auto;
     flex-wrap: wrap;
@@ -9,6 +10,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
+        align-items: flex-end;
 
 
         .nav_item {

@@ -4,6 +4,8 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import TheNavigation from "../navigation/TheNavigation";
 import styles from "./TheHeader.module.scss";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
+import imgLogoSrc from "../../../public/images/vkusniaski-logo.png"
 
 function Header() {
     const { data: session } = useSession();
@@ -12,6 +14,8 @@ function Header() {
 
     return (
         <div className={styles.header}>
+{/* <Image src={imgLogoSrc} width={90} height={60} alt="logo"></Image> */}
+
             <TheNavigation></TheNavigation>
             {session ? (
                 <button

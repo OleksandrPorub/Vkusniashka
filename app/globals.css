@@ -18,8 +18,9 @@ main {
   align-items: center;
   padding-top: 90px;
   min-height: 100vh;
-  background-image: url("/background/frukty-tekstura-patterny-15_600_blur.jpg");
-  background-size: 300px;
+  background-image: url("/background/1655708059_15-celes-club-p-tekstura-svetlaya-krasivo-16.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 

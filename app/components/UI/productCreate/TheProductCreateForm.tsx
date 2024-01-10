@@ -5,6 +5,8 @@ import styles from "./TheProductCreateForm.module.scss";
 import ThePopUpWrapper from "../popUpWrapper/ThePopUpWrapper";
 import { assortmentType, productItemType } from "@/app/data/assortment";
 import { getAllProducts } from "@/app/services/mongoFetchProducts";
+import { AnimatePresence, motion } from "framer-motion";
+import TheCloserIcon from "../closerIcon/TheCloserIcon";
 
 type Props = {
     setCreateForm: Function;
@@ -18,14 +20,19 @@ const TheProductCreateForm: React.FC<Props> = ({ selectProduct = false, setCreat
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [productList, setProductList]: [assortmentType, Function] = useState([]);
+    const [formApear, setFormApear] = useState(false);
+    
+    const getProducts = async () => {
+        setProductList(await getAllProducts({}));
+    };
+    useEffect(() => {    
+
+        selectProduct && getProducts();   
+    }, [selectProduct]);
 
     useEffect(() => {
-        const getProducts = async () => {
-            setProductList(await getAllProducts({}));
-        };
-
-        selectProduct && getProducts();
-    }, [selectProduct]);
+        setFormApear(true);     
+    }, []);
 
     const handleSave: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
@@ -39,9 +46,12 @@ const TheProductCreateForm: React.FC<Props> = ({ selectProduct = false, setCreat
         newProduct.description = description;
         newProduct.price = +parseFloat(price).toFixed(2);
         await handler_createItem(newProduct);
-        setCreateForm(false);
+        setFormApear(false);
+        setTimeout(() => {
+            setCreateForm(false);
+        }, 300);
     };
-    const autoFill = (id: string) => {       
+    const autoFill = (id: string) => {
         const product = productList.find((product) => product.id === id);
         if (product) {
             setName(product.name);
@@ -53,55 +63,76 @@ const TheProductCreateForm: React.FC<Props> = ({ selectProduct = false, setCreat
 
     return (
         <ThePopUpWrapper>
-            <div className={styles.formWrapper}>
-                <button
-                    className={styles.form}
-                    onClick={(e) => {
-                        setCreateForm(false);
-                    }}
-                >
-                    Закрити
-                </button>
-                <form onSubmit={handleSave} className={styles.form}>
-                    {selectProduct && productList.length && (
-                        <select
-                            name="product"
-                            defaultValue="selectProduct"
-                            onChange={(e) => {
-                                autoFill(e.target.value);
+            <AnimatePresence>
+                {formApear && (
+                    <motion.div
+                        className={styles.formWrapper}
+                        key="productCreateForm"
+                        initial={{ y: "-50vh" }}
+                        animate={{
+                            y: 0,
+                        }}
+                        exit={{ y: "-50vh", opacity: 0 }}
+                        transition={{
+                            duration: 1,
+                            type: "spring",
+                            bounce: 0.5,
+                        }}
+                    >
+                        <div
+                            className={styles.closerWrapper}
+                            onClick={(e) => {
+                                setFormApear(false);
+                                setTimeout(() => {
+                                    setCreateForm(false);
+                                }, 400);
                             }}
                         >
-                            <option value="selectProduct" disabled>
-                                Оберіть продукт
-                            </option>
-                            {productList.map((product) => (
-                                <option key={product.id} value={product.id}>
-                                    {product.name}
-                                </option>
-                            ))}
-                        </select>
-                    )}
+                            <TheCloserIcon width={40} color={"#98ff99"}></TheCloserIcon>
+                        </div>
+                        <form onSubmit={handleSave} className={styles.form}>
+                            {selectProduct && productList.length && (
+                                <select
+                                    className={styles.select}
+                                    name="product"
+                                    defaultValue="selectProduct"
+                                    onChange={(e) => {
+                                        autoFill(e.target.value);
+                                    }}
+                                >
+                                    <option value="selectProduct" disabled>
+                                        Оберіть продукт зі списку
+                                    </option>
+                                    {productList.map((product) => (
+                                        <option key={product.id} value={product.id}>
+                                            {product.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            )}
 
-                    <label>
-                        Назва продукту (обов &apos; язкове поле):
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                    </label>
-                    <label>
-                        Вихід продукту:
-                        <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
-                    </label>
-                    <label>
-                        Опис продукту:
-                        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
-                    </label>
-                    <label>
-                        Ціна:
-                        {/* <input type="number" value={price} onChange={(e) => setPrice(+((parseFloat(e.target.value)).toFixed(2)))} /> */}
-                        <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
-                    </label>
-                    <button>Зберегти</button>
-                </form>
-            </div>
+                            <label>
+                                Назва продукту (обов &apos; язкове поле):
+                                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                            </label>
+                            <label>
+                                Вихід продукту:
+                                <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+                            </label>
+                            <label>
+                                Опис продукту:
+                                <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+                            </label>
+                            <label>
+                                Ціна:
+                                {/* <input type="number" value={price} onChange={(e) => setPrice(+((parseFloat(e.target.value)).toFixed(2)))} /> */}
+                                <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
+                            </label>
+                            <button>Зберегти</button>
+                        </form>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </ThePopUpWrapper>
     );
 };

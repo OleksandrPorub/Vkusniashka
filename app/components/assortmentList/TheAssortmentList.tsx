@@ -46,7 +46,6 @@ const TheAssortmentList: FC = () => {
         setProductList(await getAllProducts({}));
         // setIsChoose(null);
     };
-   
 
     const handler_Closer = (e: any) => {
         e.stopPropagation();
@@ -54,6 +53,7 @@ const TheAssortmentList: FC = () => {
     };
     const chooseAction = isChoose ? (
         <TheChooseAction
+            key={isChoose}
             id={isChoose}
             setEditForm={setEditForm}
             handler_DelItem={handler_DelItem}
@@ -81,7 +81,9 @@ const TheAssortmentList: FC = () => {
                 onClick={() => {
                     setCreateForm(true);
                 }}
-            >Створити новий продукт</button>
+            >
+                Створити новий продукт
+            </button>
             {editForm && (
                 <TheProductEditForm
                     handler_updateItem={handler_updateItem}
@@ -90,7 +92,9 @@ const TheAssortmentList: FC = () => {
                     setEditForm={setEditForm}
                 ></TheProductEditForm>
             )}
-            {createForm&&<TheProductCreateForm setCreateForm={setCreateForm} handler_createItem={handler_createItem}></TheProductCreateForm>}
+            {createForm && (
+                <TheProductCreateForm setCreateForm={setCreateForm} handler_createItem={handler_createItem}></TheProductCreateForm>
+            )}
         </article>
     );
 };

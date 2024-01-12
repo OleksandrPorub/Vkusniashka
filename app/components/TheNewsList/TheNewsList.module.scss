@@ -1,0 +1,53 @@
+.wrapper {
+
+    .headLine {
+        margin: 8px auto;
+        text-align: center;
+
+        font-size: 24px;
+        font-weight: 500;
+        margin: 20px 10px;
+        color: #063c8f;
+        font-weight: 800;
+        text-shadow: 2px 2px 6px white,
+          -2px -2px 6px white,
+          -2px 2px 6px white,
+          2px -2px 6px white, ;
+
+    }
+
+    .newsList {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .newsCard {
+            --card-bgColor: rgba(255, 255, 255, 0.479);
+            border-radius: 10px;
+            background: var(--card-bgColor);
+            margin: 10px;
+            padding: 5px;
+            box-shadow: 0 0 5px 5px var(--card-bgColor);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: rgb(9, 42, 133);
+
+            &_date{
+                display: inline-block;
+                align-self: flex-end;
+                font-weight: 900;
+                color: rgb(97, 97, 97);
+                border: 2px solid rgb(99, 99, 99);
+                border-radius: 16px;
+                padding: 2px 14px;
+            }
+            &_title{
+                margin-bottom: 6px;
+                font-size: 1.05em;
+            }
+
+        }
+    }
+
+}

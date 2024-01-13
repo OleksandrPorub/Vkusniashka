@@ -8,11 +8,11 @@ import Image from "next/image";
 import imgLogoSrc from "../../../public/images/vkusniaski-logo.png";
 
 const navigation = [
-    // {
-    //     id: 1,
-    //     title: "Домашня",
-    //     path: "/",
-    // },
+    {
+        id: 1,
+        title: "Головна",
+        path: "/",
+    },
     {
         id: 2,
         title: "Асортимент",
@@ -42,11 +42,11 @@ const TheNavigation = () => {
     return (
         <nav className={styles.nav}>
             <ul>
-                <li>
+                {/* <li>
                     <Link className={styles.nav_item + (pathname === "/" ? ` ${styles.active}` : "")} href={"/"}>
-                        <Image src={imgLogoSrc} width={100} height={60} alt="logo"></Image>
+                        <Image src={imgLogoSrc} width={90} height={90/(600/287)} alt="logo"></Image>
                     </Link>
-                </li>
+                </li> */}
                 {navigation.map(
                     (item) =>
                         !(!session && item.path.includes("admin")) && (

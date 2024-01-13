@@ -12,7 +12,7 @@ export default function Home() {
                         <Image className={styles.imgLogo} src={imgLogoSrc} width={600} height={393} alt="logo"></Image>
                     </div>
                     {/* <h2>ВКУСНЯШКИ ВІД НАТАШКИ</h2> */}
-                    <p className={styles.description}>Магазин смачної домашньої кухні</p>
+                    {/* <p className={styles.description}>Магазин смачної домашньої кухні</p> */}
                 </section>
                 <section className={styles.newsList}>
                     <TheNewsList></TheNewsList>

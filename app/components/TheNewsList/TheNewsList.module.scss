@@ -1,18 +1,23 @@
 .wrapper {
+    display: flex;
+    flex-direction: column;
+width: 100%;
+// flex: 1 1 800px;
+max-width: 800px;
 
     .headLine {
         margin: 8px auto;
         text-align: center;
 
-        font-size: 24px;
+        font-size: 26px;
         font-weight: 500;
         margin: 20px 10px;
         color: #063c8f;
         font-weight: 800;
         text-shadow: 2px 2px 6px white,
-          -2px -2px 6px white,
-          -2px 2px 6px white,
-          2px -2px 6px white, ;
+            -2px -2px 6px white,
+            -2px 2px 6px white,
+            2px -2px 6px white, ;
 
     }
 
@@ -26,6 +31,48 @@
             border-radius: 10px;
             background: var(--card-bgColor);
             margin: 10px;
+            padding: 0 6px 6px;
+            box-shadow: 0 0 5px 5px var(--card-bgColor);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: rgb(9, 42, 133);
+
+            &_date {
+                display: inline-block;
+                // margin-top: -10px;
+                align-self: flex-end;
+                font-weight: 700;
+                color: rgb(97, 97, 97);
+                // border-bottom: 2px solid rgba(99, 99, 99, 0.678);
+                border-radius: 16px;
+                padding: 2px 6px;
+                margin-bottom: 5px;
+                // background: #ffffff85;
+                // color: wheat;
+                // text-shadow: 0 2px 3px white;
+                strong{
+                    color:rgb(202, 13, 117);
+                }
+            }
+
+            &_title {
+                margin-bottom: 6px;
+                font-size: 1.05em;
+            }
+        }
+    }
+
+    .outerBox {
+        border: 1px solid red;
+        width: 100%;
+        // height: 200px;
+
+        .newsCard {
+            --card-bgColor: rgba(255, 255, 255, 0.479);
+            border-radius: 10px;
+            background: var(--card-bgColor);
+            margin: 10px;
             padding: 5px;
             box-shadow: 0 0 5px 5px var(--card-bgColor);
             display: flex;
@@ -33,7 +80,7 @@
             align-items: flex-start;
             color: rgb(9, 42, 133);
 
-            &_date{
+            &_date {
                 display: inline-block;
                 align-self: flex-end;
                 font-weight: 900;
@@ -41,12 +88,16 @@
                 border: 2px solid rgb(99, 99, 99);
                 border-radius: 16px;
                 padding: 2px 14px;
+
+                &_strong{
+                    color:rgb(202, 13, 117);
+                }
             }
-            &_title{
+
+            &_title {
                 margin-bottom: 6px;
                 font-size: 1.05em;
             }
-
         }
     }
 

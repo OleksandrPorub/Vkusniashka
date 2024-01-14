@@ -32,6 +32,18 @@ const newsDefault = [
         title: "Доступний для замовленния борщ з квасолею.",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe blanditiis sit soluta quia magni est incidunt voluptatibus officiis voluptas reiciendis.",
     },
+    {
+        id: "05",
+        date: new Date("2024-01-13").getTime(),
+        title: "Сьогоні у магазині буде велики асортимент.",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe blanditiis sit soluta quia magni est incidunt voluptatibus officiis voluptas reiciendis.",
+    },
+    {
+        id: "06",
+        date: new Date("2023-12-31").getTime(),
+        title: "Всіх вітаю зі святом! Магазин не буде працювати 4 дні.",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe blanditiis sit soluta quia magni est incidunt voluptatibus officiis voluptas reiciendis.",
+    },
 ];
 
 type newsType = {

@@ -25,11 +25,16 @@ const navigation = [
     },
     {
         id: 4,
+        title: "Контакти",
+        path: "/contacts",
+    },
+    {
+        id: 5,
         title: "admin Асортимент",
         path: "/admin-assortment",
     },
     {
-        id: 5,
+        id: 6,
         title: "admin Меню",
         path: "/admin-menuToday",
     },

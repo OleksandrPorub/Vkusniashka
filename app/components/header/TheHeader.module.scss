@@ -8,6 +8,7 @@
     box-shadow: 0 3px 14px rgba(0, 0, 0, 0.55);
     z-index: 1;
     // padding: 3px 0 0;
+    padding-bottom: 1px;
     display: flex;
     flex-direction: column;
     // justify-content: space-between;
@@ -50,7 +51,7 @@
             min-height: 24px;
             font-size: 15px;
             font-weight: 600;
-            color: rgb(93, 95, 99);
+            color: rgb(114, 114, 114);
             cursor: pointer;
             background: transparent;
             // margin-top: 6px;
@@ -92,7 +93,8 @@
         box-shadow: inset 4px 0 8px rgba(0, 0, 0, 0.65), inset -4px 0 8px rgba(0, 0, 0, 0.65);
         max-width: 100%;
         overflow-x: auto;
-        background: #ffffff63;
+        background: #ffffff7a;
         align-self: center;
+        border-radius: 10px;
     }
 }

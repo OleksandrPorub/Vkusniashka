@@ -4,8 +4,6 @@ import Link from "next/link";
 import styles from "./TheNavigation.module.scss";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
-import imgLogoSrc from "../../../public/images/vkusniaski-logo.png";
 
 const navigation = [
     {
@@ -47,11 +45,6 @@ const TheNavigation = () => {
     return (
         <nav className={styles.nav}>
             <ul>
-                {/* <li>
-                    <Link className={styles.nav_item + (pathname === "/" ? ` ${styles.active}` : "")} href={"/"}>
-                        <Image src={imgLogoSrc} width={90} height={90/(600/287)} alt="logo"></Image>
-                    </Link>
-                </li> */}
                 {navigation.map(
                     (item) =>
                         !(!session && item.path.includes("admin")) && (

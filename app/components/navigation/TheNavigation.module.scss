@@ -9,6 +9,7 @@
     // overflow-x: auto;
     padding:0 4px 3px;
     border: 2px solid #ffcf758f;
+    border-radius: 8px;
     border-width: 2px 4px;
     border-color: transparent #d4a45bfd ;
 
@@ -29,21 +30,23 @@
             padding: 3px 1px 1px;
             border: 4px solid transparent;
             border-top: none;
-            color: rgb(26, 48, 145);
+            color: rgb(56, 65, 105);
             border-bottom-color: #1b379285;
             font-weight: 600;
             font-size: 16px;
+            border-radius: 5px;
 
 
             &:hover {
                 transform: scale(1.04);
                 border-bottom-color: #1b3792d3;
-                background: #ffffff2d;
+                background: #ffffff3b;
             }
 
             &.active {
                 border-bottom-color: #f32078;
                 font-weight: 900;
+                color: rgb(26, 48, 145);
             }
           
         }

@@ -1,0 +1,52 @@
+.newsCard {
+    --card-bgColor: rgba(255, 255, 255, 0.555);
+    border-radius: 10px;
+    background: var(--card-bgColor);
+    margin: 10px;
+    padding: 0 6px 6px;
+    box-shadow: 0 0 5px 5px var(--card-bgColor);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: rgb(9, 42, 133);
+
+    .adminSection {
+        .adminBtn {
+            margin: 4px 6px;
+            padding: 2px;
+            border: 1px solid rgba(3, 72, 201, 0.548);
+            color: rgb(17, 67, 160);
+            min-width: 35px;
+            min-height: 22px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0.5px 0.5px 5px rgba(0, 0, 0, 0.5);
+
+            &:hover{
+                background: #1264fd36;
+            }
+        }
+    }
+
+    &_date {
+        display: inline-block;
+        align-self: flex-end;
+        font-weight: 700;
+        color: rgb(97, 97, 97);
+        border-radius: 16px;
+        padding: 2px 6px;
+        margin-bottom: 5px;
+
+        strong {
+            color: rgb(202, 13, 117);
+        }
+    }
+    &_text {
+    }
+
+
+    &_title {
+        margin-bottom: 6px;
+        font-size: 1.05em;
+    }
+}

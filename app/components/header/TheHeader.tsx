@@ -1,6 +1,6 @@
 "use client";
 
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import TheNavigation from "../navigation/TheNavigation";
 import styles from "./TheHeader.module.scss";
 import { usePathname, useRouter } from "next/navigation";

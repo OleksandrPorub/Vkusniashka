@@ -1,16 +1,16 @@
-import ProductToday from "./../productTodayModel";
+import News from "./../newsModel";
 import dbMongoConnect from "@/app/api/dbMongoConnect";
 import { NextResponse } from "next/server";
 
 export async function GET(req: any) {
     await dbMongoConnect();
-    const gettedProducts = await ProductToday.find();
+    const gettedNewsList = await News.find();
     const { searchParams } = new URL(req.url);
     const query = searchParams?.get("q");
 
-    const products = query ? gettedProducts.filter((item) => item.name.toLowerCase().includes(query.toLowerCase())) : gettedProducts;
+    const newsList = query ? gettedNewsList.filter((item) => (item.title.toLowerCase().includes(query.toLowerCase())||item.text.toLowerCase().includes(query.toLowerCase()))) : gettedNewsList;
 
-    return NextResponse.json(products);
+    return NextResponse.json(newsList);
 }
 
 export async function DELETE(req: any) {
@@ -18,7 +18,7 @@ export async function DELETE(req: any) {
 
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");
-    const response = await ProductToday.deleteOne({ id: id });
+    const response = await News.deleteOne({ id: id });
 
     return NextResponse.json(response);
 }
@@ -31,11 +31,10 @@ export async function POST(req: any) {
     const id = searchParams.get("id");
 
     if (id) {
-        response = await ProductToday.updateOne({ id: id }, body);
+        response = await News.updateOne({ id: id }, body);
     } else {
-        const newProductItem = new ProductToday(body);
-        response = newProductItem.save();
+        const newsItem = new News(body);
+        response = newsItem.save();
     }
-
     return NextResponse.json(response);
 }

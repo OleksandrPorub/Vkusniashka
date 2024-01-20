@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./TheNewsCard.module.scss";
-import { useEffect, useRef, useState } from "react";
+// import { useEffect, useRef, useState } from "react";
 import { Session } from "next-auth";
 
 type newsType = {
@@ -22,30 +22,30 @@ const daysOfTheWeek = ["неділя", "понеділок", "вівторок",
 
 const TheNewsCard = ({ news, setActiveNews, dateNow, itemDeletion, session }: PropsType) => {
     
-    const [newsCardTextElement, setNewsCardTextElement]: [Element | null, Function] = useState(null);
+    // const [newsCardTextElement, setNewsCardTextElement]: [Element | null, Function] = useState(null);
 
     const whichDay = (date: number) => {
         if (new Date(date).toLocaleDateString() === dateNow.toLocaleDateString()) return "СЬОГОДНІ";
         if (new Date(date + 24 * 3600 * 1000).toLocaleDateString() === dateNow.toLocaleDateString()) return "ВЧОРА";
         return null;
     };
-    const newsCardTextRef = useRef(null);
+    // const newsCardTextRef = useRef(null);
 
-    useEffect(() => {
-        const elementText = newsCardTextRef.current;
-        console.log(elementText);
-        setNewsCardTextElement(elementText);
-        if (elementText) {
-            setNewsCardTextElement(elementText);
-        }
-    }, []);
+    // useEffect(() => {
+    //     const elementText = newsCardTextRef.current;
+    //     console.log(elementText);
+    //     setNewsCardTextElement(elementText);
+    //     if (elementText) {
+    //         setNewsCardTextElement(elementText);
+    //     }
+    // }, []);
 
-    useEffect(() => {
-        console.dir(newsCardTextElement);
-        if (newsCardTextElement) {
-            newsCardTextElement.innerText = news.text;
-        }
-    }, [news, newsCardTextElement]);
+    // useEffect(() => {
+    //     console.dir(newsCardTextElement);
+    //     if (newsCardTextElement) {
+    //         newsCardTextElement.innerText = news.text || "";
+    //     }
+    // }, [news, newsCardTextElement]);
 
     return (
         <article className={styles.newsCard}>
@@ -74,8 +74,9 @@ const TheNewsCard = ({ news, setActiveNews, dateNow, itemDeletion, session }: Pr
                 {new Date(news.date).toLocaleDateString()}&nbsp;&nbsp;{daysOfTheWeek[new Date(news.date).getDay()]}
             </span>
             <h4 className={styles.newsCard_title}>{news.title}</h4>
-            <p ref={newsCardTextRef} className={styles.newsCard_text}>
-            </p>
+            <pre className={styles.newsCard_text}>
+                {news.text || ""}
+            </pre>
         </article>
     );
 };

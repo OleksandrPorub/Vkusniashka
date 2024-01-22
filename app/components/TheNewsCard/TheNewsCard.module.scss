@@ -1,9 +1,9 @@
 .newsCard {
-    --card-bgColor: rgba(255, 255, 255, 0.555);
+    --card-bgColor: rgba(255, 255, 255, 0.63);
     border-radius: 10px;
     background: var(--card-bgColor);
-    margin: 10px;
-    padding: 0 6px 6px;
+    margin: 10px 3vw;
+    padding: 0 2% calc(6px + 2%);
     box-shadow: 0 0 5px 5px var(--card-bgColor);
     display: flex;
     flex-direction: column;
@@ -12,18 +12,20 @@
 
     .adminSection {
         .adminBtn {
+            --colorRGB: 83, 116, 189;
             margin: 4px 6px;
-            padding: 2px;
-            border: 1px solid rgba(3, 72, 201, 0.548);
-            color: rgb(17, 67, 160);
-            min-width: 35px;
-            min-height: 22px;
+            padding: 0 6px;
+            line-height: 0;
+            font-size: 25px;
+            background: rgba(var(--colorRGB), 0.12);
+            // border: 1px solid rgb(var(--colorRGB));
+            color: rgb(var(--colorRGB));
             border-radius: 4px;
             cursor: pointer;
-            box-shadow: 0.5px 0.5px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
 
-            &:hover{
-                background: #1264fd36;
+            &:hover {
+                background: rgba(var(--colorRGB), 0.3);
             }
         }
     }
@@ -41,14 +43,12 @@
             color: rgb(202, 13, 117);
         }
     }
+
     &_text {
         font-family: inherit;
         width: 100%;
-        // border: 1px solid red;
-        // word-wrap: break-word;
         white-space: pre-wrap;
     }
-
 
     &_title {
         margin-bottom: 6px;

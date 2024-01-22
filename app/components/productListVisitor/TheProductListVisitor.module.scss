@@ -1,6 +1,6 @@
 .wrapper {
     --colNum-width: 30px;
-    --colPrice-width: 80px;
+    --colPrice-width: 70px;
     --colQuantity-width: 90px;
 
 
@@ -112,12 +112,20 @@
                     min-width: var(--colPrice-width);
                     max-width: var(--colPrice-width);
                     font-size: 0.98em;
+
+                    .price_integer{
+
+                    }
+                    .price_fraction{
+                        font-size: 0.8em;                    
+                    }
                 }
 
                 &.prop_description {
-                    font-size: 0.8em;
+                    font-size: 0.85em;
                     font-weight: 400;
                     flex-grow: 1;
+                    font-style: italic;
                 }
             }
         }

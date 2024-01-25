@@ -10,7 +10,7 @@ const TheContactsCard = () => {
                 <p className={styles.intro_text}>
                     <span className={styles.intro_name}>НАТАШКА</span>&nbsp;-&nbsp;це&nbsp;я:
                 </p>
-                <Image className={styles.intro_img} src={selfifotoSrc} alt="selfi foto" width={100}></Image>
+                <Image className={styles.intro_img} src="/images/natashka-selfi-foto.png" alt="selfi foto" width={100} height={100}></Image>
                 {/* <h3 className={styles.headline}>Задати питання чи замовити страви ви можете скориставшись каналами для зв&apos;язку:</h3> */}
             </section>
             <h3 className={styles.headline}>Задати питання чи замовити страви ви можете скориставшись каналами для зв&apos;язку:</h3>

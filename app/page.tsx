@@ -9,7 +9,7 @@ export default function Home() {
             <div className={styles.wrapper}>
                 <section className={styles.intro}>
                     <div className={styles.logoWrapper}>
-                        <Image className={styles.imgLogo} src={imgLogoSrc} width={600} height={393} alt="logo"></Image>
+                        <Image className={styles.imgLogo} src={imgLogoSrc} width={600} height={287} alt="logo"></Image>
                     </div>
                     {/* <h2>ВКУСНЯШКИ ВІД НАТАШКИ</h2> */}
                     {/* <p className={styles.description}>Магазин смачної домашньої кухні</p> */}

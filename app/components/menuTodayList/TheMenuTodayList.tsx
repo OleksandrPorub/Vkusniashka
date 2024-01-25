@@ -19,18 +19,27 @@ const TheMenuTodayList: FC = () => {
     const [isLoading, setIsLoading]: [boolean, Function] = useState(false);
     const [createForm, setCreateForm]: [boolean, Function] = useState(false);
   
-    useEffect(() => {
-        const getProducts = async () => {
+    const getProducts = async () => {
+        setIsLoading(true);
+        const products = await getMenuToday({});
+        setProductList(products);
+        setIsLoading(false);
+    };
+    const handler_removeAll = async () => {
+        if(window.confirm("Видалити безповоротно всі продукти з Меню?")){
             setIsLoading(true);
-            const products = await getMenuToday({});
-            setProductList(products);
+            await deleteProductMenu({});
+            setProductList(await getMenuToday({}));
             setIsLoading(false);
         };
+    };
+
+    useEffect(() => {
         getProducts();
     }, []);
+
     const handler_DelItem = async (id: string) => {
-        const response = window.prompt("Ви впевнені, що хочете видалити цей елемент?", "Так");
-        if (response === ("Так" || "Да" || "Yes" || "y" || "Y")) {
+        if (window.confirm("Ви впевнені, що хочете видалити цей елемент?")) {
             await deleteProductMenu({ id: id });
             setProductList(await getMenuToday({}));
             setIsChoose(null);
@@ -66,12 +75,15 @@ const TheMenuTodayList: FC = () => {
             {isLoading ? (
                 <TheLoader size={80}></TheLoader>
             ) : productList.length ? (
-                <TheProductList
-                    productList={productList}
-                    isChoose={isChoose}
-                    setIsChoose={setIsChoose}
-                    chooseAction={chooseAction}
-                ></TheProductList>
+                <>
+                    <button className={styles.btn_deleteAll} onClick={()=>{handler_removeAll()}}>ОЧИСТИТИ СПИСОК</button>
+                    <TheProductList
+                        productList={productList}
+                        isChoose={isChoose}
+                        setIsChoose={setIsChoose}
+                        chooseAction={chooseAction}
+                    ></TheProductList>
+                </>
             ) : (
                 <h3>Продуктів у списку немає.</h3>
             )}
@@ -92,7 +104,11 @@ const TheMenuTodayList: FC = () => {
                 ></TheProductEditForm>
             )}
             {createForm && (
-                <TheProductCreateForm selectProduct={true} setCreateForm={setCreateForm} handler_createItem={handler_createItem}></TheProductCreateForm>
+                <TheProductCreateForm
+                    selectProduct={true}
+                    setCreateForm={setCreateForm}
+                    handler_createItem={handler_createItem}
+                ></TheProductCreateForm>
             )}
         </article>
     );

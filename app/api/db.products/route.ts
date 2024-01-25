@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(req: any) {
     await dbMongoConnect();
-    const gettedProducts = await Product.find();
+    const gettedProducts = await Product.find().sort({name:1});
     const { searchParams } = new URL(req.url);
     const query = searchParams?.get("q");
 
@@ -13,12 +13,13 @@ export async function GET(req: any) {
     return NextResponse.json(products);
 }
 
-export async function DELETE(req: any) {
+export async function DELETE(req?: any) {
     await dbMongoConnect();
 
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");
-    const response = await Product.deleteOne({ id: id });
+
+    const response = id ? await Product.deleteOne({ id: id }) : await Product.deleteMany({});
 
     return NextResponse.json(response);
 }

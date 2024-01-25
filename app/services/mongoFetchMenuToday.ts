@@ -21,7 +21,7 @@ export const getMenuToday = async ({ query }: { query?: string }) => {
     return response.json();
 };
 
-export const deleteProductMenu = async ({ id }: { id: string }) => {
+export const deleteProductMenu = async ({ id }: { id?: string }) => {
     const url = id ? URL_PRODUCTS + `?id=${id}` : URL_PRODUCTS;
     const response = await fetch(url, {
         method: "DELETE",

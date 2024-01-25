@@ -14,6 +14,30 @@
     max-width: 100%;
     margin: 30px 0;
 
+    .btn_deleteAll{
+        width: fit-content;
+        padding: 4px;
+        
+        // background: #ffcce5;
+        // border: 2px solid #b1497d;
+        // color: #b61b68;
+
+        background: #e7c6d6;
+        border: 2px solid #a7597f;
+        color: #9e396c;
+
+        font-weight: 600;
+        margin: 0 0 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.55);
+        cursor: pointer;
+
+        &:hover{
+            background: #ffafd6;
+            border: 2px solid #b61b68;
+            color: #b61b68;
+        }
+    }
+
     .headLine {
         color: #3c5091;
         margin: 0 auto 12px;

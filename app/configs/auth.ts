@@ -17,7 +17,7 @@ export const authConfig:AuthOptions = {
             async authorize(credentials, req) {
                 if (credentials?.login === "admin" && credentials?.password === "vkus458") {
                     // const user = { id: "1", name: credentials.login, email: "vkusniashka@gmail.com", type: "admin" };
-                    const user = { name: credentials.login };
+                    const user = {id: "admin", name: credentials.login, password:credentials.password};
                     return user as User;
                 } else return null;
             },

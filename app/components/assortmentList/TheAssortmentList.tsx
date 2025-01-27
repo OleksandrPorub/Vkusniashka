@@ -28,8 +28,7 @@ const TheAssortmentList: FC = () => {
         getProducts();
     }, []);
     const handler_DelItem = async (id: string) => {
-        const response = window.prompt("Ви впевнені, що хочете видалити цей елемент?", "Так");
-        if (response === ("Так" || "Да" || "Yes" || "y" || "Y")) {
+        if (window.confirm("Ви впевнені, що хочете видалити цей елемент?")) {
             await deleteProduct({ id: id });
             setProductList(await getAllProducts({}));
             setIsChoose(null);

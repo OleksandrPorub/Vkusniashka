@@ -5,6 +5,7 @@ if (!BASE_URL) {
 }
 
 const URL_PRODUCTS = BASE_URL + "/api/db.menutoday";
+const URL_PRODUCTS_EDIT = BASE_URL + "/api/db-edit.menutoday";
 
 type productType = {
     _id?: string;
@@ -17,12 +18,13 @@ type productType = {
 
 export const getMenuToday = async ({ query }: { query?: string }) => {
     const url = query ? URL_PRODUCTS + `?q=${query}` : URL_PRODUCTS;
+
     const response = await fetch(url);
     return response.json();
 };
 
 export const deleteProductMenu = async ({ id }: { id?: string }) => {
-    const url = id ? URL_PRODUCTS + `?id=${id}` : URL_PRODUCTS;
+    const url = id ? URL_PRODUCTS_EDIT + `?id=${id}` : URL_PRODUCTS_EDIT;
     const response = await fetch(url, {
         method: "DELETE",
     });
@@ -31,7 +33,7 @@ export const deleteProductMenu = async ({ id }: { id?: string }) => {
 
 export const editProductMenu = async (product: productType) => {
     const id = product.id;
-    const url = id ? URL_PRODUCTS + `?id=${id}` : URL_PRODUCTS;
+    const url = id ? URL_PRODUCTS_EDIT + `?id=${id}` : URL_PRODUCTS_EDIT;
     const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(product),
@@ -40,7 +42,7 @@ export const editProductMenu = async (product: productType) => {
 };
 
 export const createNewProductMenu = async (product: productType) => {
-    const url = URL_PRODUCTS;
+    const url = URL_PRODUCTS_EDIT;
     const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(product),

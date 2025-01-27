@@ -6,6 +6,7 @@ if (!BASE_URL) {
 }
 
 const URL_PRODUCTS = BASE_URL + "/api/db.products";
+const URL_PRODUCTS_EDIT = BASE_URL + "/api/db-edit.products";
 
 type productType = {
     _id?: string;
@@ -24,7 +25,7 @@ export const getAllProducts = async ({ query }: { query?: string }) => {
 };
 
 export const deleteProduct = async ({ id }: { id: string }) => {
-    const url = id ? URL_PRODUCTS + `?id=${id}` : URL_PRODUCTS;
+    const url = id ? URL_PRODUCTS_EDIT + `?id=${id}` : URL_PRODUCTS_EDIT;
     const response = await fetch(url, {
         method: "DELETE",
     });
@@ -33,7 +34,7 @@ export const deleteProduct = async ({ id }: { id: string }) => {
 
 export const editProduct = async (product: productType) => {
     const id = product.id;
-    const url = id ? URL_PRODUCTS + `?id=${id}` : URL_PRODUCTS;
+    const url = id ? URL_PRODUCTS_EDIT + `?id=${id}` : URL_PRODUCTS_EDIT;
     const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(product),
@@ -43,7 +44,7 @@ export const editProduct = async (product: productType) => {
 
 export const createNewProduct = async (product: productType) => {
    
-    const url =  URL_PRODUCTS;
+    const url =  URL_PRODUCTS_EDIT;
     const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(product),

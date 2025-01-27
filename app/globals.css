@@ -17,7 +17,7 @@ main {
   justify-content: space-between;
   align-items: center;
   padding-top: 90px;
-  min-height: 100vh;
+  min-height: 100dvh;
   background-image: url("/background/tekstura-svetlaya-bege.jpg");
   background-size: cover;
   background-repeat: no-repeat;

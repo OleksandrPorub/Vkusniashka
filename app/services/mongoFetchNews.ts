@@ -13,6 +13,7 @@ if (!BASE_URL) {
 }
 
 const URL_NEWS = BASE_URL + "/api/db.news";
+const URL_NEWS_EDIT = BASE_URL + "/api/db-edit.news";
 
 export const getAllNews = async ({ query }: { query?: string }) => {
 
@@ -22,7 +23,7 @@ export const getAllNews = async ({ query }: { query?: string }) => {
 };
 
 export const deleteNews = async ({ id }: { id: string }) => {
-    const url = id ? URL_NEWS + `?id=${id}` : URL_NEWS;
+    const url = id ? URL_NEWS_EDIT + `?id=${id}` : URL_NEWS_EDIT;
     const response = await fetch(url, {
         method: "DELETE",
     });
@@ -31,7 +32,7 @@ export const deleteNews = async ({ id }: { id: string }) => {
 
 export const editNews = async (news: NewsType) => {
     const id = news.id;
-    const url = id ? URL_NEWS + `?id=${id}` : URL_NEWS;
+    const url = id ? URL_NEWS_EDIT + `?id=${id}` : URL_NEWS_EDIT;
     const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(news),
@@ -41,7 +42,7 @@ export const editNews = async (news: NewsType) => {
 
 export const createNews = async (news: NewsType) => {
    
-    const url =  URL_NEWS;
+    const url =  URL_NEWS_EDIT;
     const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(news),

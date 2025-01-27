@@ -13,8 +13,6 @@ function Header() {
     const router = useRouter();
     const currentPath = usePathname();
 
-    // console.log(session);
-
     return (
         <div className={styles.header}>
             <section className={styles.mainSection}>
